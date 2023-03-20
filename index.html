@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            cursor: none;
+            background: #000;
+            color: #fff;
+        }
+        .puntero, .puntero1, .puntero2, .puntero3{
+            position: fixed;
+            top: 50%;
+            background: #99f;
+            left: 50%;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            box-shadow: 0 0 10px 10px #99f9;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        h1{
+            font-size: 3em;
+            text-shadow: 0 0 5px #fff, 0 0 15px #fff, 0 0 25px #fff;
+        }        
+    </style>
+</head>
+<body>
+    <div class="puntero"></div>
+    <div class="puntero1"></div>
+    <div class="puntero2"></div>
+    <div class="puntero3"></div>
+    <h1>
+        punteros
+    </h1>
+    <script>
+        window.addEventListener("mousemove", e=>{
+            document.querySelector(".puntero").style.setProperty("top", e.pageY + "px")
+            document.querySelector(".puntero").style.setProperty("left", e.pageX + "px")
+            setTimeout(()=>{
+                document.querySelector(".puntero1").style.setProperty("top", e.pageY + 15 + "px")
+                document.querySelector(".puntero1").style.setProperty("left", e.pageX + 15 + "px")
+           }, 50)
+           setTimeout(()=>{
+                document.querySelector(".puntero2").style.setProperty("top", e.pageY + 30 + "px")
+                document.querySelector(".puntero2").style.setProperty("left", e.pageX + 30 + "px")
+           }, 100)
+           setTimeout(()=>{
+                document.querySelector(".puntero3").style.setProperty("top", e.pageY + 45 + "px")
+                document.querySelector(".puntero3").style.setProperty("left", e.pageX + 45 + "px")
+           }, 150)
+        })
+        window.addEventListener("touchstart", e=>{
+            window.addEventListener("touchmove", e =>{
+                document.querySelector(".puntero").style.setProperty("top", e.touches[0].pageY + "px")
+                document.querySelector(".puntero").style.setProperty("left", e.touches[0].pageX + "px")
+                setTimeout(()=>{
+                    document.querySelector(".puntero1").style.setProperty("top", e.touches[0].pageY + 15 + "px")
+                    document.querySelector(".puntero1").style.setProperty("left", e.touches[0].pageX + 15 + "px")
+               }, 50)
+               setTimeout(()=>{
+                    document.querySelector(".puntero2").style.setProperty("top", e.touches[0].pageY + 30 + "px")
+                    document.querySelector(".puntero2").style.setProperty("left", e.touches[0].pageX + 30 + "px")
+               }, 100)
+               setTimeout(()=>{
+                    document.querySelector(".puntero3").style.setProperty("top", e.touches[0].pageY + 45 + "px")
+                    document.querySelector(".puntero3").style.setProperty("left", e.touches[0].pageX + 45 + "px")
+               }, 150)
+            })
+        })
+    </script>
+</body>
+</html>
